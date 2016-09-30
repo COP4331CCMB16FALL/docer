@@ -1,0 +1,131 @@
+@font-face {
+	font-family: 'ADAM.CG PRO';
+	src: url('../fonts/fonts/ADAM.CG PRO.eot');
+	src: local('☺'), url('../fonts/fonts/ADAM.CG PRO.woff') format('woff'), url('fonts/ADAM.CG PRO.ttf') format('truetype'), url('../fonts/fonts/ADAM.CG PRO.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Starter template */
+
+body {
+    height: 100%;
+    word-wrap: normal;
+	background: ghostWhite; 
+}
+.center{
+    display: block;
+    content: "";
+	text-align: center;
+}
+
+
+/*================= Navigation Bar =============================*/
+
+.searchBar{
+		width:400px;
+		
+}
+.searchBar-input-group .input-group-addon{
+    background: white !important; 
+}
+.searchBar-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.searchBar-input-group button{
+    border:0;
+    background:transparent;
+}
+.navigationBar{
+    padding-top: 10px;
+    padding-bottom: 10px;    
+   
+    /*background-image: linear-gradient(to bottom, grey , grey);    /* Change grey, black */
+    /*(background-image: -webkit-linear-gradient (top, grey, grey); /* Change grey, black */
+    /*text-align: center; 
+		float:none;
+		margin: 0 auto;
+		display: table;
+    table-layout: fixed;
+		*/
+		margin-left: 50px;
+}
+.mainNav{
+    float:none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+}
+
+	
+.navigationBar .nav > li.mainNav > a {
+    float:none;
+    border: 0.5px solid grey;           /* Add a border */
+    /*background-image: linear-gradient(to bottom, white, white);    /* Change grey, black */
+   /* background-image: -webkit-linear-gradient (top, grey, black); /* Change grey, black */
+    background-repeat: repeat-x;        /* Add shading */
+    text-align: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;  
+    margin-right: 15x;
+    font-size: 15px;`
+    height: 50px;
+    width: 80px;
+}
+.navigationBar .nav > li.searchBar > a {
+		width: 400px;
+		height: 50px;
+		margin-left: 50px;
+		margin-right; 20px
+		background-color: cornflowerblue;
+				
+}
+
+
+/* Level 3 Surround */
+.dropdown-submenu  > .dropdown-menu {
+    background-color: darkblue ;
+}
+/* Level 2/3 dropdown link before hover */
+.dropdown-menu > li > a {
+    background-color: red ;
+    color: white;
+}
+/* Level 3 dropdown link with hover */
+.dropdown-submenu  > .dropdown-menu > li > a:hover {
+    background-color: lightgreen !important;
+    color: black !important;
+}
+
+/*======================homeView==============================*/
+
+
+.groupBox{
+ 	background-image: linear-gradient(to bottom, white, white);    
+	background-image: -webkit-linear-gradient (top, grey, black); 
+	text-align: left;
+	/*width:500px
+	height:100px*/
+		
+}
+.groupCheckBox{/*box on homepage for each group*/
+	margin-right; 10px;
+	margin-left: 10px;
+	font-size: 15px;
+	text-align: center
+}
+
+.groupSettingsIcon{
+	float: right;
+	margin-left: 20px;
+}
+
+.groupActionsBox{
+	display:block;
+	background-color:pink;
+
+}
+		

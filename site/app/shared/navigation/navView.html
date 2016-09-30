@@ -1,0 +1,38 @@
+<section class="navigationBar">
+ 
+    <ul class="nav nav-pills"   >
+    <li class ="mainNav">
+    	<button class="btn btn-lg btn-primary" ng-click="go('/')">Home</button>
+    </li>
+				
+    <li class="mainNav">
+	<div class="dropdown">
+	  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+	  <span class="caret"></span></button>
+		<ul class="dropdown-menu">
+			<li><a href="#/groups"><a>Groups</a></li>
+			<li ng-hide="$rootScope.loggedIn"><a href="#/login">Login</a></li>
+			<li ng-show="$rootScope.loggedIn"><a href="#/logout">Logout</a></li>
+		</ul>
+		</div>
+	</li>
+	<li>
+		<div class="searchBar"> 
+			<div class="input-group searchBar-input-group">
+					<input type="text" class="form-control"  placeholder="Search" >
+					<span class="input-group-addon">
+							<button type="submit">
+									<span class="glyphicon glyphicon-search"></span>
+							</button>  
+					</span>
+			</div>
+		</div>
+	</li>
+	<li>
+		<a ng-click="go('/upload')">
+			<i class="fa fa-upload fa-3x" aria-hidden="true"></i>
+		</a>
+	</li>
+ 
+	</ul>
+</section>
