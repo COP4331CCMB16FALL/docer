@@ -106,6 +106,24 @@
 	  	<script src="app/components/group/create/create.module.js"></script>
 	  	<script src="app/components/group/create/config.route.js"></script>
 	  	<script src="app/components/group/create/create.directive.js"></script>
-	</body>
+
+	<script>
+		$('.carousel').carousel({
+			interval: false //changes the speed
+		})
+	</script>
+
+	<script>
+		$('#radioContainer > input').each(function () {
+			var radioInput = $(this);
+			if (radioInput.is(':checked')) {
+				$('#radioContainer').animate({
+					scrollTop: radioInput.offset().top
+				}, 2000);
+			}
+		});
+	</script>
+
+  </body>
 
 </html>
