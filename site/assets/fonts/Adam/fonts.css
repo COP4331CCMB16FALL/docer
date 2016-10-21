@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'ADAM.CG PRO';
+	src: url('../fonts/fonts/ADAM.CG PRO.eot');
+	src: local('☺'), url('../fonts/fonts/ADAM.CG PRO.woff') format('woff'), url('fonts/ADAM.CG PRO.ttf') format('truetype'), url('../fonts/fonts/ADAM.CG PRO.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
