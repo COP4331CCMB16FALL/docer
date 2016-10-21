@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.group.create')
+    .module('app.manage.docs')
     .config(configFunction);
 
   configFunction.$inject = ['$routeProvider'];
 
   function configFunction($routeProvider) {
-    $routeProvider.when('/group/create', {
-      templateUrl: 'app/components/sys_info/manage_docs/createView.html'
+    $routeProvider.when('/admin/docs', {
+      templateUrl: 'app/components/sys_info/manage/docs/docView.html'
     });
   }
 
