@@ -9,7 +9,7 @@
 
   function configFunction($routeProvider) {
     $routeProvider.when('/group/create', {
-      templateUrl: 'app/components/sys_info/manage_docs/createView.html'
+      templateUrl: 'app/components/group/create/createView.html'
     });
   }
 
