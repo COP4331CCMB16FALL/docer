@@ -10,6 +10,7 @@
         var service = {};
 
         service.Login = Login;
+        service.Logout = Logout;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
 
@@ -39,6 +40,18 @@
             /* Use this for real authentication
              ----------------------------------------------*/
             $http.post('/api/authenticate', { email: email, password: password })
+            .success(function (response) {
+                    callback(response);
+            })
+            .error(function (err) {
+                    console.log(err); //debug crap
+                    callback(err);
+            });
+        }
+        
+        //logout function - tell laravel backend to invalidate token
+        function Logout(callback) {
+            $http.get('/api/deauthenticate')
             .success(function (response) {
                     callback(response);
             })

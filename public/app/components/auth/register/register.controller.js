@@ -5,24 +5,26 @@
         .module('app')
         .controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
-    function RegisterController(UserService, $location, $rootScope, FlashService) {
+    RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService', 'AuthenticationService'];
+    function RegisterController(UserService, $location, $rootScope, FlashService, AuthenticationService) {
         var vm = this;
 
         vm.register = register;
 
         function register() {
             vm.dataLoading = true;
-            UserService.Create(vm.user)
+            UserService.Register(vm.user)
                 .then(function (response) {
-                    if (response.success) {
+                    if (response.token) {
                         FlashService.Success('Registration successful', true);
-                        $location.path('/login');
+                        AuthenticationService.SetCredentials(vm.user.email, response.token);
+                        $location.path('/');
                     } else {
-                        FlashService.Error(response.message);
+                        //TODO: better error message
+                        FlashService.Error(response);
                         vm.dataLoading = false;
                     }
-                });
+            });
         }
     }
 

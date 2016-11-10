@@ -19,7 +19,6 @@
 		'app.home', /*'app.home.groups', 'app.home.settings',*/
 		'app.upload',
 		'app.account',
-	  	'app.logout',
 	  	'app.group.create'
 
 

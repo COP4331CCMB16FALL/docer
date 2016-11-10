@@ -43,6 +43,9 @@ Route::group(['prefix' => 'api'], function()
     
     // Handles registering
     Route::post('register', 'AuthenticateController@register');
+    
+    // Handle logout
+    Route::get('deauthenticate', 'AuthenticateController@deauthenticate');
 });
 
 Route::auth();

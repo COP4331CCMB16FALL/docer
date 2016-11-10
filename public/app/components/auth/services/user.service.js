@@ -9,15 +9,27 @@
     function UserService($http) {
         var service = {};
 
+        /*
         service.GetAll = GetAll;
         service.GetById = GetById;
         service.GetByUsername = GetByUsername;
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
-
+        */
+        
+        service.Register = Register;
+        
         return service;
-
+        
+        function Register(user) {
+            return $http.post('/api/register', user).then(
+                handleSuccess, 
+                handleError('Error creating user')
+            );
+        }
+        
+        /*
         function GetAll() {
             return $http.get('/api/users').then(handleSuccess, handleError('Error getting all users'));
         }
@@ -31,7 +43,7 @@
         }
 
         function Create(user) {
-            return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
+            return $http.post('/api/register', user).then(handleSuccess, handleError('Error creating user'));
         }
 
         function Update(user) {
@@ -41,6 +53,7 @@
         function Delete(id) {
             return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
         }
+        */
 
         // private functions
 

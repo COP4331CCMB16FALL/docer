@@ -4,6 +4,7 @@ body {
     height: 100%;
     word-wrap: normal;
 	background: ghostWhite;
+    padding-top: 60px; /* spacing for nav bar */
 }
 .center{
     display: block;
@@ -75,21 +76,22 @@ body {
 				/**/
 /*}*/
 
+/* maximus - doesn't seen to match with our style */
 
 /* Level 3 Surround */
-.dropdown-submenu  > .dropdown-menu {
-    background-color: darkblue ;
-}
+/*.dropdown-submenu  > .dropdown-menu {*/
+/*    background-color: darkblue ;*/
+/*}*/
 /* Level 2/3 dropdown link before hover */
-.dropdown-menu > li > a {
-    /* background-color: red ; maximus - red look ugly */
-    color: white;
-}
+/*.dropdown-menu > li > a {*/
+    /* background-color: red ;*/
+/*    color: white;*/
+/*}*/
 /* Level 3 dropdown link with hover */
-.dropdown-submenu  > .dropdown-menu > li > a:hover {
-    background-color: lightgreen !important;
-    color: black !important;
-}
+/*.dropdown-submenu  > .dropdown-menu > li > a:hover {*/
+/*    background-color: lightgreen !important;*/
+/*    color: black !important;*/
+/*}*/
 
 /*======================homeView==============================*/
 

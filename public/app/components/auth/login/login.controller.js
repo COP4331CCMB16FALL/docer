@@ -23,7 +23,8 @@
                     AuthenticationService.SetCredentials(vm.username, response.token);
                     $location.path('/');
                 } else {
-                    FlashService.Error(response.message);
+                    //TODO: better error message
+                    FlashService.Error(response);
                     vm.dataLoading = false;
                 }
             });
