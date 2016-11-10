@@ -20,7 +20,11 @@
                        aria-expanded="false">Account <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Account</a></li>
+                        <!-- Maximus - put back old login/logout
                         <li><a href="#">Log out</a></li>
+                         -->
+			            <li ng-hide="$rootScope.loggedIn"><a href="#/login">Login</a></li>
+			            <li ng-show="$rootScope.loggedIn"><a href="#/logout">Logout</a></li>
                     </ul>
                 </li>
 

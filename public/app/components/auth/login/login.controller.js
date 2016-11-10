@@ -15,19 +15,16 @@
             // reset login status
             AuthenticationService.ClearCredentials();
         })();
-		
-		login.$inject = ["$rootScope"];
-        function login($rootScope) {
+
+        function login() {
             vm.dataLoading = true;
             AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
+                if (response.token) {
+                    AuthenticationService.SetCredentials(vm.username, response.token);
                     $location.path('/');
-					$rootScope.loggedIn = true;
                 } else {
                     FlashService.Error(response.message);
                     vm.dataLoading = false;
-					$rootScope.loggedIn = false;
                 }
             });
         };

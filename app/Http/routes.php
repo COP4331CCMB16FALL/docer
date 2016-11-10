@@ -15,6 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* maximus crap 
+Route::get('names', function()
+{
+    return array(
+      1 => "John",
+      2 => "Mary",
+      3 => "Steven"
+    );
+});
+
+Route::get('names/{id}', function($id)
+{
+    $names = array(
+      1 => "John",
+      2 => "Mary",
+      3 => "Steven"
+    );    
+    return array($id => $names[$id]);
+});
+*/
+
+Route::group(['prefix' => 'api'], function()
+{
+    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    Route::post('authenticate', 'AuthenticateController@authenticate');
+});
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
