@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
+use Validator;
 
 class AuthenticateController extends Controller
 {
@@ -16,9 +17,9 @@ class AuthenticateController extends Controller
     public function __construct()
     {
         // Apply the jwt.auth middleware to all methods in this controller
-        // except for the authenticate method. We don't want to prevent
+        // except for the authenticate/register method. We don't want to prevent
         // the user from retrieving their token if they don't already have it
-        $this->middleware('jwt.auth', ['except' => ['authenticate']]);
+        $this->middleware('jwt.auth', ['except' => ['authenticate', 'register']]);
     }
 
     /**
@@ -28,7 +29,7 @@ class AuthenticateController extends Controller
      */
     public function index()
     {
-
+        // Just for testing. Remove later
         // Retrieve all the users in the database and return them        
         $users = User::all();
 
@@ -56,5 +57,31 @@ class AuthenticateController extends Controller
 
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token'));
+    }
+    
+    public function register(Request $request)
+    {
+        $userinfo = $request->only('name', 'email', 'password');
+        
+        $validator = Validator::make($userinfo, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6',
+        ]);
+        
+        //validate input
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 500);
+        }
+        
+        //create user
+        User::create([
+            'name' => $userinfo['name'],
+            'email' => $userinfo['email'],
+            'password' => bcrypt($userinfo['password']),
+        ]);
+        
+        //return user token
+        return $this->authenticate($request);
     }
 }

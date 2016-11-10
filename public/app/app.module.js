@@ -44,12 +44,21 @@
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.token; //Bearer token
         }
+        
+        // maximus - test see if authentication is working
+        /*
+        $http.get('/api/authenticate')
+            .success(function (data) {
+                console.log(data);
+            });
+        */
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             
+            //set the root scope loggedIn value for the nav bar to show login or logout
             if(loggedIn)
                 $rootScope.loggedIn = true;
             else
