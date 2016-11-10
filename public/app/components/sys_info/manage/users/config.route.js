@@ -8,8 +8,8 @@
   configFunction.$inject = ['$routeProvider'];
 
   function configFunction($routeProvider) {
-    $routeProvider.when('/manage/users', {
-      templateUrl: 'app/components/sys_info/manage/usersView.html'
+    $routeProvider.when('/admin/users', {
+      templateUrl: 'app/components/sys_info/manage/users/usersView.html'
     });
   }
 

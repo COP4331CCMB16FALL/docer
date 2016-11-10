@@ -19,9 +19,10 @@
 		'app.home', /*'app.home.groups', 'app.home.settings',*/
 		'app.upload',
 		'app.account',
-	  	'app.group.create'
-
-
+	  	'app.group.create',
+	  	'app.manage.docs',
+        'app.manage.groups',
+        'app.manage.users'
     ])
     .config(configFunction)
     .run(run);

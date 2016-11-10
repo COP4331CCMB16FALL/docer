@@ -9,7 +9,7 @@
 
   function configFunction($routeProvider) {
     $routeProvider.when('/admin/docs', {
-      templateUrl: 'app/components/sys_info/manage/docs/docView.html'
+      templateUrl: 'app/components/sys_info/manage/docs/docsView.html'
     });
   }
 

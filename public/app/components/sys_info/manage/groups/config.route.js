@@ -9,7 +9,7 @@
 
   function configFunction($routeProvider) {
     $routeProvider.when('/admin/groups', {
-      templateUrl: 'app/components/sys_info/manage/groupsView.html'
+      templateUrl: 'app/components/sys_info/manage/groups/groupsView.html'
     });
   }
 
