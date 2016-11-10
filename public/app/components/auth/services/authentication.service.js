@@ -15,7 +15,8 @@
 
         return service;
 		
-        function Login(username, password, callback) {
+		//Laravel used email and password 
+        function Login(email, password, callback) {
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------
@@ -37,33 +38,32 @@
             
             /* Use this for real authentication
              ----------------------------------------------*/
-            var http_ret = $http.post('/api/authenticate', { email: username, password: password });
-            
-            http_ret.success(function (response) {
+            $http.post('/api/authenticate', { email: email, password: password })
+            .success(function (response) {
                     callback(response);
-            });
-            http_ret.error(function (err) {
-                    console.log(err);
+            })
+            .error(function (err) {
+                    console.log(err); //debug crap
                     callback(err);
             });
         }
 
-        function SetCredentials(username, token) {
+        function SetCredentials(email, token) {
             $rootScope.globals = {
                 currentUser: {
-                    username: username,
+                    email: email, //not sure if we need to keep track of the email? to show on nav bar later? meh
                     token: token,
                 }
             };
 
-            $http.defaults.headers.common['Authorization'] = 'Bearer  ' + token; //Bearer token
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + token; //Bearer token
             $cookieStore.put('globals', $rootScope.globals);
         }
 
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
-            $http.defaults.headers.common.Authorization = 'Basic';
+            $http.defaults.headers.common.Authorization = '';
         }
     }
 

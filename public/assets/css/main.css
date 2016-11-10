@@ -82,7 +82,7 @@ body {
 }
 /* Level 2/3 dropdown link before hover */
 .dropdown-menu > li > a {
-    background-color: red ;
+    /* background-color: red ; maximus - red look ugly */
     color: white;
 }
 /* Level 3 dropdown link with hover */
