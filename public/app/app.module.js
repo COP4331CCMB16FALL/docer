@@ -11,6 +11,7 @@
 	  	"checklist-model",
 	  	"angularModalService",
 	  	"ngCookies",
+	  	'restangular',
 
 
       	/*custom*/
