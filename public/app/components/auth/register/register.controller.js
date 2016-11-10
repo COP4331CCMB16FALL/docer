@@ -21,6 +21,7 @@
                         $location.path('/');
                     } else {
                         //TODO: better error message
+                        console.log("register error: ", response);
                         FlashService.Error(response);
                         vm.dataLoading = false;
                     }

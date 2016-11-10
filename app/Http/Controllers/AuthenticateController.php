@@ -93,7 +93,7 @@ class AuthenticateController extends Controller
         
         //validate input
         if ($validator->fails()) {
-            return response()->json($validator->messages(), 500);
+            return response()->json($validator->messages(), 422);
         }
         
         //create user

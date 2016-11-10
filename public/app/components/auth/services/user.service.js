@@ -25,7 +25,7 @@
         function Register(user) {
             return $http.post('/api/register', user).then(
                 handleSuccess, 
-                handleError('Error creating user')
+                handleError
             );
         }
         
@@ -61,10 +61,8 @@
             return res.data;
         }
 
-        function handleError(error) {
-            return function () {
-                return { success: false, message: error };
-            };
+        function handleError(res) {
+            return res.data;
         }
     }
 
