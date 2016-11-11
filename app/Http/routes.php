@@ -46,6 +46,8 @@ Route::group(['prefix' => 'api'], function()
     
     // Handle logout
     Route::get('deauthenticate', 'AuthenticateController@deauthenticate');
+    
+    Route::resource('test', 'TestController', ['only' => ['index']]);
 });
 
 Route::auth();

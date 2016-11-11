@@ -27,12 +27,15 @@
     .config(configFunction)
     .run(run);
 
-    configFunction.$inject = ['$routeProvider'];
+    configFunction.$inject = ['RestangularProvider', '$routeProvider'];
 
-    function configFunction($routeProvider, $locationProvider, $httpProvider) {
+    function configFunction(RestangularProvider, $routeProvider, $locationProvider, $httpProvider) {
         $routeProvider.otherwise({
             redirectTo: '/'
         });
+        
+        //set rest base url
+        RestangularProvider.setBaseUrl('/api');
     };
 
 	run.$inject = ['$rootScope', '$location', '$cookieStore', '$http' ];
