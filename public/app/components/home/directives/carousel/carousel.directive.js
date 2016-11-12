@@ -4,35 +4,43 @@
 
 	//controls the groups assigned to a user and how they are displayed
 
-    CarouselDemoCtrl.$inject = ['$scope'];
-    
-    function CarouselDemoCtrl($scope) {
-        //$scope.myInterval = 5000;
-        //$scope.noWrapSlides = false;
-        //$scope.active = 0;
-        var slides = $scope.slides = [];
-        var currIndex = 0;
+    CarouselController.$inject = ['$scope', 'Restangular'];
 
-        $scope.addSlide = function() {
-            var newWidth = 600 + slides.length + 1;
-            slides.push({
-                image: '//unsplash.it/' + newWidth + '/300',
-                text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
-                //active: currIndex==0,
-                id: currIndex++
-            });
-        };
-    
-        for (var i = 0; i < 4; i++) {
-            $scope.addSlide();
-        }
+    function CarouselController($scope, Restangular) {
+        //var slides = $scope.slides = [];
+        //var currIndex = 0;
+
+        //REST call to the back end
+        Restangular.all('test').getList().then(function(response) {
+            var plain = response.plain();
+            $scope.slides = plain;
+            //console.log("carousel rest: ", plain);
+        });
+
+
+
+        // function addSlide() {
+        //     var newWidth = 600 + slides.length + 1;
+        //     slides.push({
+        //         image: '//unsplash.it/' + newWidth + '/300',
+        //         text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
+        //         //active: currIndex==0,
+        //         id: currIndex++
+        //     });
+        // };
+
+        // for (var i = 0; i < 4; i++) {
+        //     addSlide();
+        // }
+
+
     };
 
  	app.directive('carousel', function(){
 		return{
 			restrict: 'E',
 			templateUrl: "/app/components/home/directives/carousel/carouselView.html",
-            controller: CarouselDemoCtrl
+            controller: CarouselController
 		};
 	});
 

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json(['welcome']);
 });
 
 /* maximus crap 
@@ -46,6 +46,10 @@ Route::group(['prefix' => 'api'], function()
     
     // Handle logout
     Route::get('deauthenticate', 'AuthenticateController@deauthenticate');
+    
+    Route::resource('test', 'TestController', ['only' => ['index']]);
+    
+    Route::controller('system', 'SystemController');
 });
 
 Route::auth();

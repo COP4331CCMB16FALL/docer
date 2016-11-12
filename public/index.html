@@ -38,8 +38,8 @@
 
     <!--Third-party JS-->
     <script src="assets/libs/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/libs/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script src="assets/libs/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/libs/bower_components/angular/angular.js"></script>
     <script src="assets/libs/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
     <script src="assets/libs/bower_components/angular-route/angular-route.js"></script>
@@ -53,7 +53,7 @@
     <script src="assets/libs/bower_components/restangular/dist/restangular.js"></script>
     <script src="assets/libs/bower_components/restangular/dist/restangular.min.js"></script>
     <script src="assets/libs/bower_components/lodash/dist/lodash.js"></script>
-    
+
 
     <!--main app module-->
     <script src="app/app.module.js"></script>
@@ -63,7 +63,7 @@
     <!-- Navigation -->
     <script src="app/shared/navigation/navigation.module.js"></script>
     <script src="app/shared/navigation/directives/navigation.directive.js"></script>
-    
+
     <!-- Home Module -->
     <script src="app/components/home/home.module.js"></script>
     <script src="app/components/home/config.route.js"></script>
@@ -89,43 +89,56 @@
     <script src="app/components/auth/services/authentication.service.js"></script>
     <script src="app/components/auth/services/flash.service.js"></script>
     <script src="app/components/auth/services/user.service.js"></script>
-    
+
     <!-- Login -->
     <script src="app/components/auth/login/login.controller.js"></script>
     <script src="app/components/auth/login/config.route.js"></script>
     <script src="app/components/auth/login/directives/login.directive.js"></script>
-    
-    
+
+
     <!--logout-->
     <script src="app/components/auth/logout/logout.controller.js"></script>
     <script src="app/components/auth/logout/config.route.js"></script>
-    
-    
+
+
     <!-- Register -->
     <script src="app/components/auth/register/config.route.js"></script>
     <script src="app/components/auth/register/register.controller.js"></script>
     <!-- groups -->
-    
+
     <!-- New -->
     <script src="app/components/group/create/create.module.js"></script>
     <script src="app/components/group/create/config.route.js"></script>
     <script src="app/components/group/create/create.directive.js"></script>
-    
-    <!-- System info -->
-    <script src="app/components/sys_info/manage/docs/docs.module.js"></script>
-    <script src="app/components/sys_info/manage/docs/config.route.js"></script>
 
-    <script src="app/components/sys_info/manage/groups/groups.module.js"></script>
-    <script src="app/components/sys_info/manage/groups/config.route.js"></script>
+    <!-- Admin --->
+    <script src="app/components/admin/admin.module.js"></script>
+    <script src="app/components/admin/config.route.js"></script>
+        <!-- Doc -->
+        <script src="app/components/admin/doc/doc.module.js"></script>
+        <script src="app/components/admin/doc/config.route.js"></script>
+        <script src="app/components/admin/doc/doc.controller.js"></script>
+        <script src="app/components/admin/doc/create/create.directive.js"></script>
+        <script src="app/components/admin/doc/destroy/destroy.directive.js"></script>
+        <script src="app/components/admin/doc/read/read.directive.js"></script>
+        <script src="app/components/admin/doc/update/update.directive.js"></script>
 
-    <script src="app/components/sys_info/manage/users/users.module.js"></script>
-    <script src="app/components/sys_info/manage/users/config.route.js"></script>
+        <!-- User -->
+        <script src="app/components/admin/user/user.module.js"></script>
+        <script src="app/components/admin/user/config.route.js"></script>
+        <script src="app/components/admin/user/user.controller.js"></script>
+        <script src="app/components/admin/user/sideBar/sideBar.directive.js"></script>
+        <script src="app/components/admin/user/create/create.directive.js"></script>
+        <script src="app/components/admin/user/destroy/destroy.directive.js"></script>
+        <script src="app/components/admin/user/read/read.directive.js"></script>
+        <script src="app/components/admin/user/update/update.directive.js"></script>
 
-    <script src="app/components/sys_info/menu/menu.module.js"></script>
-    <script src="app/components/sys_info/menu/config.route.js"></script>
+        <!-- System -->
+        <script src="app/components/admin/system/system.module.js"></script>
+        <script src="app/components/admin/system/config.route.js"></script>
+        <script src="app/components/admin/system/system.controller.js"></script>
+        <script src="app/components/admin/system/system.service.js"></script>
 
-    <script src="app/components/sys_info/overview/overview.module.js"></script>
-    <script src="app/components/sys_info/overview/config.route.js"></script>
 
     <script>
         $('.carousel').carousel({
