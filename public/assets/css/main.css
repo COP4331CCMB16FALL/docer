@@ -101,7 +101,7 @@ body {
 	text-align: left;
 	/*width:500px
 	height:100px*/
-		
+
 }
 .groupCheckBox{/*box on homepage for each group*/
 	margin-right: 10px;
@@ -171,4 +171,94 @@ li {
     background-repeat: no-repeat;
     background-position: 0px 5px;
     padding-left: 14px;
+}
+
+.panel-green {
+    border-color: #5cb85c
+}
+
+.panel-green>.panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c
+}
+
+.panel-green>a {
+    color: #5cb85c
+}
+
+.panel-green>a:hover {
+    color: #3d8b3d
+}
+
+.panel-red {
+    border-color: #d9534f
+}
+
+.panel-red>.panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f
+}
+
+.panel-red>a {
+    color: #d9534f
+}
+
+.panel-red>a:hover {
+    color: #b52b27
+}
+
+.panel-yellow {
+    border-color: #f0ad4e
+}
+
+.panel-yellow>.panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e
+}
+
+.panel-yellow>a {
+    color: #f0ad4e
+}
+
+.panel-yellow>a:hover {
+    color: #df8a13
+}
+
+.panel-purple {
+    border-color: #aa66cc
+}
+
+.panel-purple>.panel-heading {
+    border-color: #aa66cc;
+    color: #fff;
+    background-color: #aa66cc
+}
+
+.panel-purple>a {
+    color: #aa66cc
+}
+
+.panel-purple>a:hover {
+    color: #9933CC
+}
+
+.panel-light-blue {
+    border-color: #5bc0de
+}
+
+.panel-light-blue>.panel-heading {
+    border-color: #5bc0de;
+    color: #fff;
+    background-color: #5bc0de
+}
+
+.panel-light-blue>a {
+    color: #5bc0de
+}
+
+.panel-light-blue>a:hover {
+    color: #4aa4bf
 }

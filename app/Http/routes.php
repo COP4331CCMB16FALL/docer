@@ -53,3 +53,4 @@ Route::group(['prefix' => 'api'], function()
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
