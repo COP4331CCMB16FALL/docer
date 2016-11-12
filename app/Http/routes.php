@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json(['welcome']);
 });
 
 /* maximus crap 
@@ -48,6 +48,8 @@ Route::group(['prefix' => 'api'], function()
     Route::get('deauthenticate', 'AuthenticateController@deauthenticate');
     
     Route::resource('test', 'TestController', ['only' => ['index']]);
+    
+    Route::controller('system', 'SystemController');
 });
 
 Route::auth();
