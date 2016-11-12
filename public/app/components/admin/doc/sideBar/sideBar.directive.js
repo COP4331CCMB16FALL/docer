@@ -1,10 +1,10 @@
 (function(){
     var app = angular.module('app.admin.doc');
 
-    app.directive("docRead", function(){
+    app.directive("sideBar", function(){
         return{
             restrict: 'E',
-            templateUrl: "/app/components/admin/doc/read/readView.html"
+            templateUrl: "/app/components/admin/doc/sideBar/sideBarView.html"
         };
     })
 })();

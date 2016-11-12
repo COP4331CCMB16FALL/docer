@@ -2,11 +2,11 @@
     //Read up here http://stackoverflow.com/questions/21444100/angularjs-how-to-http-get-data-and-store-it-in-service
 
     'use strict';
-    var app = angular.module('app.admin');
+    var app = angular.module('app.admin.system');
 
     app.controller('SystemController', SystemController);
 
-    SystemController.$inject = ['$scope, SystemInfo'];
+    SystemController.$inject = ['$scope', 'SystemInfo'];
     function SystemController($scope){
         /* Use this when the api works
         SystemService.getCpu().then(function(data){

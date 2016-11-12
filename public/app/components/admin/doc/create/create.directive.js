@@ -1,7 +1,7 @@
 (function(){
-    var app = angular.module('app.admin');
+    var app = angular.module('app.admin.doc');
 
-    app.directive("docRead", function(){
+    app.directive("docCreate", function(){
         return{
             restrict: 'E',
             templateUrl: "/app/components/admin/doc/create/createView.html"

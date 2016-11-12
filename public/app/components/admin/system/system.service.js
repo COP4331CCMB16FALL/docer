@@ -5,8 +5,8 @@
     var app = angular.module('app.admin');
 
     app.service('SystemInfo', SystemInfo);
-    
-    SystemInfo.$inject = ['http', '$q'];
+
+    SystemInfo.$inject = ['$http', '$q'];
 
     function SystemInfo($http, $q){
         return {

@@ -1,5 +1,5 @@
 (function(){
-    var app = angular.module('app.admin');
+    var app = angular.module('app.admin.user');
 
     app.directive("userDestroy", function(){
         return{

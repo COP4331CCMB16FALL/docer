@@ -22,7 +22,10 @@
 	  	'app.group.create',
 
 	  	'app.admin',
-    
+        'app.admin.doc',
+        'app.admin.user',
+        'app.admin.system'
+
     ])
     .config(configFunction)
     .run(run);

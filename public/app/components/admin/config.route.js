@@ -1,16 +1,13 @@
 (function() {
-  'use strict';
+    var app = angular.module('app.admin');
+    app.config(configFunction);
 
-  angular
-    .module('app.admin')
-    .config(configFunction);
+    configFunction.$inject = ['$routeProvider'];
 
-  configFunction.$inject = ['$routeProvider'];
-
-  function configFunction($routeProvider) {
-    $routeProvider.when('/admin', {
-      templateUrl: 'app/components/admin/adminPanel.html'
+    function configFunction($routeProvider) {
+        $routeProvider.when('/admin', {
+            templateUrl: 'app/components/admin/adminPanel.html'
     });
-  }
+    }
 
 })();
