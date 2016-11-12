@@ -14,7 +14,7 @@
         Restangular.all('test').getList().then(function(response) {
             var plain = response.plain();
             $scope.slides = plain;
-            console.log("carousel rest: ", plain);
+            //console.log("carousel rest: ", plain);
         });
 
 
