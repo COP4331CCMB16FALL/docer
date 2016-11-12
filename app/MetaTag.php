@@ -14,6 +14,6 @@ class MetaTag extends Model
 
     public function documents()
     {
-        return $this->belongsToMany(Document::class, 'documents_groups', 'document_id', 'group_id');
+        return $this->belongsToMany('\App\Document', 'documents_groups', 'document_id', 'group_id');
     }
 }

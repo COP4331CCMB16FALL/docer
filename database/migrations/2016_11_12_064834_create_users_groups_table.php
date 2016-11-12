@@ -10,8 +10,10 @@ class CreateUsersGroupsTable extends Migration
     {
         Schema::create('users_groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->references('id')->on('users');
-            $table->integer('group_id')->references('id')->on('groups');
+            $table->unsignedInteger('user_id')->index();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('group_id')->index();
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->timestamps();
         });
     }

@@ -11,8 +11,8 @@ class CreateDocumentsTable extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('path');
-            $table->integer('user_id')->references('id')->on('users');
-            $table->integer('group_id')->references('id')->on('groups');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('group_id');
             $table->string('mime_type');
             $table->timestamps();
         });

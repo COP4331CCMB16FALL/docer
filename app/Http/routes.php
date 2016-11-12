@@ -52,3 +52,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+
+Route::post('/create-user', 'UserController@readUser');
+Route::get('/read-user', 'UserController@readUser');
+Route::post('/update-user', 'UserController@readUser');
+Route::post('/destroy-user', 'UserController@readUser');
+

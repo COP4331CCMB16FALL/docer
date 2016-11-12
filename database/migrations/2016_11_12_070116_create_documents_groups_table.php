@@ -10,8 +10,10 @@ class CreateDocumentsGroupsTable extends Migration
     {
         Schema::create('documents_groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('document_id')->references('id')->on('documents');
-            $table->integer('group_id')->references('id')->on('groups');
+            $table->unsignedInteger('document_id')->index();
+            $table->foreign('document_id')->references('id')->on('documents');
+            $table->unsignedInteger('group_id')->index();
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->timestamps();
         });
     }
