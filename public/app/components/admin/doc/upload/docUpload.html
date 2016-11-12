@@ -1,0 +1,145 @@
+
+<nav class="navbar navbar-default custom-navbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Docer</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="nav navbar-nav navbar-right">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="fluid-container">
+    <div class="row">
+        <div class=" col-md-offset-1 col-lg-4 col-md-4">
+            <br>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="img/IMG_6399.jpg" alt="something" width="460" height="345">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="form-group">
+                            <label>File input</label>
+                            <input type="file">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" class="form-control" placeholder="First Name">
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" class="form-control" placeholder="Tyler">
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <button type="button" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+
+                    <div class="col-xs-12 col-md-12">
+                        <button type="button" class="btn btn-success pull-right">Save</i></button>
+                        <button type="button" class="btn btn-danger pull-right">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+<script>
+    $('#radioContainer > input').each(function () {
+        var radioInput = $(this);
+        if (radioInput.is(':checked')) {
+            $('#radioContainer').animate({
+                scrollTop: radioInput.offset().top
+            }, 2000);
+        }
+    });
+</script>
+
+
+<style type="text/css">
+    div.ui-menu li {
+        list-style: none;
+        background-image: none;
+        background-repeat: none;
+        background-position: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    li {
+        background-image: url(sqpurple.gif);
+        background-repeat: no-repeat;
+        background-position: 0px 5px;
+        padding-left: 14px;
+    }
+</style>
+
+<script>
+    $('.carousel').carousel({
+        interval: false //changes the speed
+    })
+</script>

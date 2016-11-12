@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.manage.users')
+    .module('app.admin')
     .config(configFunction);
 
   configFunction.$inject = ['$routeProvider'];
 
   function configFunction($routeProvider) {
     $routeProvider.when('/admin/users', {
-      templateUrl: 'app/components/sys_info/manage/users/usersView.html'
+      templateUrl: 'app/components/admin/adminMainUserPanel.html'
     });
   }
 

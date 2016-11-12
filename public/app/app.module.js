@@ -20,9 +20,9 @@
 		'app.upload',
 		'app.account',
 	  	'app.group.create',
-	  	'app.manage.docs',
-        'app.manage.groups',
-        'app.manage.users'
+
+	  	'app.admin',
+    
     ])
     .config(configFunction)
     .run(run);
@@ -33,21 +33,21 @@
         $routeProvider.otherwise({
             redirectTo: '/'
         });
-        
+
         //set rest base url
         RestangularProvider.setBaseUrl('/api');
     };
 
 	run.$inject = ['$rootScope', '$location', '$cookieStore', '$http' ];
-	
+
     function run($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
-		
+
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.token; //Bearer token
         }
-        
+
         // maximus - test see if authentication is working
         /*
         $http.get('/api/authenticate')
@@ -56,21 +56,24 @@
             });
         */
 
+        /*TODO Remove this block comment*/
+        /*NEEDED TO REMOVE TO CREATE OTHER PAGES
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
-            
+
             //set the root scope loggedIn value for the nav bar to show login or logout
             if(loggedIn)
                 $rootScope.loggedIn = true;
             else
                 $rootScope.loggedIn = false;
-            
+
             if (restrictedPage && !loggedIn) {
                 $location.path('/login');
             }
         });
-    }  
+        */
+    }
 
 })();

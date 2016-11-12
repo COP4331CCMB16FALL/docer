@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.manage.groups')
+    .module('app.groups')
     .config(configFunction);
 
   configFunction.$inject = ['$routeProvider'];
 
   function configFunction($routeProvider) {
-    $routeProvider.when('/admin/groups', {
-      templateUrl: 'app/components/sys_info/manage/groups/groupsView.html'
+    $routeProvider.when('/groups', {
+      templateUrl: 'app/components/group/manageGroups.html'
     });
   }
 
