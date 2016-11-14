@@ -1,0 +1,79 @@
+<div class="container" style="padding-top: 50px;">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+                        
+            <div id="searchCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li ng-repeat="slide in slides" 
+                        ng-class="{active:$first}" 
+                        data-target="#searchCarousel" 
+                        data-slide-to="{{slide.id}}"></li>
+                </ol>
+                
+                <div class="carousel-inner" role="listbox">
+                    <div class="item" ng-repeat="slide in slides" ng-class="{active:$first}">
+                      <img ng-src="{{slide.image}}" style="margin:auto;">
+                      <div class="container">
+                          <div class="carousel-caption">
+                              <h4>Slide {{slide.id}}</h4>
+                              <p>{{slide.text}}</p>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#searchCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#searchCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6" style="padding-top: 20px;">
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Search Results</h3>
+                </div>
+                 <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th class="col-md-1"><small>Title</small></th>
+                      <th class="col-md-1"><small>Owner</small></th>
+                      <th class="col-md-2"><small>Date</small></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><small>Doc 1</small></td>
+                      <td><small>Root</small></td>
+                      <td><small>09/20/2015</small></td>
+                    </tr>
+                    <tr>
+                      <td><small>Doc 2</small></td>
+                      <td><small>Root</small></td>
+                      <td><small>09/20/2015</small></td>
+                    </tr>
+                    <tr>
+                      <td><small>Doc 3</small></td>
+                      <td><small>Root</small></td>
+                      <td><small>09/20/2015</small></td>
+                    </tr>
+                    <tr>
+                      <td><small>Doc 4</small></td>
+                      <td><small>Root</small></td>
+                      <td><small>09/20/2015</small></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

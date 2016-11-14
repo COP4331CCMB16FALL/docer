@@ -18,6 +18,7 @@
 		'app.nav',
 		'app.home', /*'app.home.groups', 'app.home.settings',*/
 		'app.upload',
+		'app.search',
 		'app.account',
 	  	'app.group.create',
 
