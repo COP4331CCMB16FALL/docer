@@ -41,7 +41,6 @@
         //set rest base url
         RestangularProvider.setBaseUrl('/api');
     };
-
 	run.$inject = ['$rootScope', '$location', '$cookieStore', '$http' ];
 
     function run($rootScope, $location, $cookieStore, $http) {
@@ -53,12 +52,11 @@
         }
 
         // maximus - test see if authentication is working
-        /*
-        $http.get('/api/authenticate')
-            .success(function (data) {
-                console.log(data);
-            });
-        */
+        //$http.get('/api/authenticate')
+        //    .success(function (data) {
+        //        console.log(data);
+        //    });
+
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page

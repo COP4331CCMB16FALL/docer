@@ -3,7 +3,6 @@
  var app = angular.module('app.home');
 
 	//controls the groups assigned to a user and how they are displayed
-
     CarouselController.$inject = ['$scope', 'Restangular'];
 
     function CarouselController($scope, Restangular) {
@@ -16,7 +15,6 @@
             $scope.slides = plain;
             //console.log("carousel rest: ", plain);
         });
-
 
 
         // function addSlide() {
