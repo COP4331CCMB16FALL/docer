@@ -53,6 +53,11 @@ return [
             'root' => storage_path('app/public'),
             'visibility' => 'public',
         ],
+	
+        'imageStore' => [
+            'driver' => 'local',
+	    'root' => storage_path('app/storage/imageStore')
+        ],
 
         's3' => [
             'driver' => 's3',
