@@ -50,6 +50,10 @@ Route::group(['prefix' => 'api'], function()
     Route::resource('test', 'TestController', ['only' => ['index']]);
     
     Route::controller('system', 'SystemController');
+
+    Route::post('document', 'DocumentController@upload');
+    Route::get('document/{id}', 'DocumentController@view');
+    Route::delete('document/{id}', 'DocumentController@delete');
 });
 
 Route::auth();
