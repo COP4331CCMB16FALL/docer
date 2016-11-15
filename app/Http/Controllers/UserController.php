@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    protected $with = [
-        '\App\groups'
-    ];
+    protected $service;
+
+    public function __construct()
+    {
+        $this->service = app(UserService::class);
+    }
 
      public function index()
     {
@@ -25,8 +28,7 @@ class UserController extends Controller
 
     public function readUser(Request $request = null)
     {
-//        $user = app(UserService::class)->readUser($request->input('user_id'));
-
+        // TODO: Change this to use $request instead of being hardcoded
         $user = app(UserService::class)->readUser(1);
 
         dump($user);
