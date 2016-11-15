@@ -45,10 +45,15 @@ class DocumentService
 	        'updated_at' => time()
             ]
 	);
+
+	$nameID = DB::table('meta_tags')->where('name', 'name')->value('id');
+	if(is_null($nameID)) {
+	     $nameID = DB::table('meta_tags')->insertGetId( ['name' => 'name']);
+	}
         $origFileName = $file->getClientOriginalName();
 	DB::table('document_meta_tags')->insert(
 	    [
-	        'meta_tag_id' => 1,
+	        'meta_tag_id' => $nameID,
 		'document_id' => $id,
 		'value' => $origFileName
             ]
