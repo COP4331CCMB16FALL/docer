@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 use Storage;
 use Imagick;
@@ -20,7 +21,7 @@ class DocumentService
         }
 
         $filePath = $file->getRealPath();
-        
+
 	// Convert image to jpg for simplicity
         $image = new Imagick($filePath);
 	$image->setImageFormat('jpg');
@@ -37,7 +38,7 @@ class DocumentService
 
 	$id = DB::table('documents')->insertGetId(
 	    [
-	        'path' => $finalPath, 
+	        'path' => $finalPath,
 	        'user_id' => $user['id'],
 		'group_id' => $group,
 		'mime_type' => 'image/jpg',
@@ -97,7 +98,7 @@ class DocumentService
         if(is_null($doc)) {
             return response()->json('Error: User does not have access to document ' . $document_id, 422);
         }
-	
+
 	DB::table('document_meta_tags')->where('document_id', '=', $doc->id)->delete();
 	DB::table('documents')->where('id', '=', $doc->id)->delete();
 

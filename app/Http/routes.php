@@ -15,27 +15,6 @@ Route::get('/', function () {
     return response()->json(['welcome']);
 });
 
-/* maximus crap 
-Route::get('names', function()
-{
-    return array(
-      1 => "John",
-      2 => "Mary",
-      3 => "Steven"
-    );
-});
-
-Route::get('names/{id}', function($id)
-{
-    $names = array(
-      1 => "John",
-      2 => "Mary",
-      3 => "Steven"
-    );    
-    return array($id => $names[$id]);
-});
-*/
-
 Route::group(['prefix' => 'api'], function()
 {
     Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
@@ -61,8 +40,23 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 
-Route::post('/create-user', 'UserController@readUser');
+// Users api endpoints
+Route::post('/create-user', 'UserController@createUser');
 Route::get('/read-user', 'UserController@readUser');
-Route::post('/update-user', 'UserController@readUser');
-Route::post('/destroy-user', 'UserController@readUser');
+Route::post('/update-user', 'UserController@updateUser');
+Route::post('/destroy-user', 'UserController@destroyUser');
 
+// Documents api endpoints
+Route::post('/create-document', 'DocumentController@createDocument');
+Route::get('/read-document', 'DocumentController@readDocument');
+Route::post('/update-document', 'DocumentController@updateDocument');
+Route::post('/destroy-document', 'DocumentController@destroyDocument');
+
+
+// Groups api end points
+Route::post('/create-group', 'GroupController@createGroup');
+Route::get('/read-group', 'GroupController@readGroup');
+Route::get('/get-group-members', 'GroupController@getGroupMembers');
+Route::get('/get-group-documents', 'GroupController@getGroupDocuments');
+Route::post('/update-group', 'DocumentController@updateGroup');
+Route::post('/destroy-group', 'DocumentController@destroyGroup');
