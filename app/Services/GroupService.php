@@ -11,12 +11,17 @@ class GroupService
 
     public function createGroup($user_id)
     {
+        // TODO
+    }
 
+    public function readGroup($user_id)
+    {
+        // TODO
     }
 
     public function updateGroup($group_id)
     {
-
+        // TODO
     }
 
     public function getGroupMembers($group_id)
@@ -50,7 +55,7 @@ class GroupService
 
     public function destroyGroup($group_id, $user_id)
     {
-
+        // TODO
     }
 
 }

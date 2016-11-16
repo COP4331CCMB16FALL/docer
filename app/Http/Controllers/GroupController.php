@@ -15,19 +15,14 @@ class GroupController extends Controller
         $this->service = app(GroupService::class);
     }
 
-    public function index()
-    {
-        return '';
-    }
-
     public function createGroup(Request $request)
     {
-
+        $this->service->createGroup($request->input('group_id'));
     }
 
     public function readGroup(Request $request)
     {
-
+        $this->service->createGroup($request->input('group_id'));
     }
 
     public function getGroupMembers(Request $request = null)
@@ -43,7 +38,7 @@ class GroupController extends Controller
     public function getGroupDocuments(Request $request = null)
     {
         // TODO: Change this to use $request instead of being hardcoded
-        $groupDocuments = app(GroupService::class)->getGroupDocuments(1);
+        $groupDocuments = $this->service->getGroupDocuments(1);
 
         dump($groupDocuments);
 
@@ -52,12 +47,12 @@ class GroupController extends Controller
 
     public function updateGroup(Request $request)
     {
-
+        $this->service->updateGroup($request->input('group_id'));
     }
 
     public function destroyGroup(Request $request)
     {
-
+        $this->service->destroyGroup($request->input('group_id'));
     }
 
 }
