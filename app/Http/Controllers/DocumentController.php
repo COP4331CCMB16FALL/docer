@@ -43,13 +43,13 @@ class DocumentController extends Controller
     {
         $fileupload = $request->only('user_upload', 'group', 'filename');
         $validator = Validator::make($fileupload, [
-	    'user_upload' => 'required',
-	    'group' => 'required|integer'
-	]);
-	if($validator->fails()) {
-	    return response()->json($validator->messages(), 422);
-	}
-	return app(DocumentService::class)->createDocument(
+            'user_upload' => 'required',
+            'group' => 'required|integer'
+        ]);
+        if($validator->fails()) {
+            return response()->json($validator->messages(), 422);
+        }
+        return app(DocumentService::class)->createDocument(
             $fileupload['user_upload'],
             $fileupload['group'],
             $request->user());
@@ -58,14 +58,21 @@ class DocumentController extends Controller
     public function delete(Request $request, $id)
     {
         return app(DocumentService::class)->destroyDocument(
-	    $id,
-	    $request->user());
+            $id,
+            $request->user());
     }
 
     public function view(Request $request, $id)
     {
         return app(DocumentService::class)->readDocument(
-	    $id,
-	    $request->user());
+            $id,
+            $request->user());
+    }
+
+    public function search(Request $request)
+    {
+        return app(DocumentService::class)->searchDocument(
+            $request->input('str'), 
+            $request->user());
     }
 }
