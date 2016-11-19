@@ -2,9 +2,8 @@
     <div class="ui-menu" id="radioContainer"
          style="display: block; overflow-y: auto; height: 130px;">
         <ul>
-            <li ng-repeat="user in users">
-                <input class="control control--radio" type="radio" name="distance"
-                       value="1"/>{{user.text}}
+            <li ng-repeat="user in group.users">
+                <input class="control control--radio" type="radio" name="distance" value="1"/>{{user.name}}
             </li>
         </ul>
     </div>

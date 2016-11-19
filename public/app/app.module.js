@@ -12,6 +12,7 @@
 	  	"angularModalService",
 	  	"ngCookies",
 	  	'restangular',
+	  	"ngMaterial",
 
 
       	/*custom*/
