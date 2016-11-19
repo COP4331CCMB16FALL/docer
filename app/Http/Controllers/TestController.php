@@ -22,7 +22,7 @@ class TestController extends Controller
         return response()->json([
             [
                 'image' => 'http://imgs.xkcd.com/comics/estimation.png',
-                'text' => 'Estimation',
+                'text' => Auth::id(),
                 'id' => 0
             ],
             [
