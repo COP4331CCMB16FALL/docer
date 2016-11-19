@@ -4,7 +4,10 @@
     app.directive("userUpdate", function(){
         return{
             restrict: 'E',
-            templateUrl: "/app/components/admin/user/update/updateView.html"
+            scope: {show: '='},
+            templateUrl: "/app/components/admin/user/update/updateView.html",
+            controller: 'UpdateController',
+            controllerAs: "updateCtrl"
         };
     })
 })();

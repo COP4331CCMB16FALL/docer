@@ -7,14 +7,22 @@ use App\User;
 class UserService
 {
 
-    public function createUser($email, $password)
+    public function createUser($userinfo)
     {
-
+        //create user
+        User::create([
+            'name' => $userinfo['name'],
+            'email' => $userinfo['email'],
+            'password' => bcrypt($userinfo['password']),
+        ]);
     }
 
-    public function updateUser($user_id)
+    public function updateUser($user_id, $name, $email)
     {
-
+        $user = User::findOrFail($user_id);
+        $user->name = $name;
+        $user->email = $email;
+        $user->save();
     }
 
     public function readUser($user_id)
@@ -38,7 +46,11 @@ class UserService
 
     public function destroyUser($user_id)
     {
-
+        $user = User::find($user_id);
+        if (!is_null($user))
+        {
+            $user->delete();
+        }
     }
 
     public function getUserDocuments($user_id)

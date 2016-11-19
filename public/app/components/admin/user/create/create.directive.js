@@ -4,7 +4,10 @@
     app.directive("userCreate", function(){
         return{
             restrict: 'E',
-            templateUrl: "/app/components/admin/user/create/createView.html"
+            scope: {show: '='},
+            templateUrl: "/app/components/admin/user/create/createView.html",
+            controller: 'CreateController',
+            controllerAs: "createCtrl"
         };
     })
 })();

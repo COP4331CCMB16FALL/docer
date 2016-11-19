@@ -1,4 +1,4 @@
-<div ng-show="catCtrl.isSet(3)">
+<div ng-show="show">
 
             <div class="col-md-8 col-lg-8 col-sx-6>">
                 <div class="panel panel-warning" style="height: 460px">
@@ -12,33 +12,33 @@
                         <div class="row">
                             <div class="col-md-offset-1 col-md-5">
                                 <div class="form-group">
-                                    <label>First Name:</label>
-                                    <input class="form-control" placeholder="Tyler">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Last Name:</label>
-                                    <input class="form-control" placeholder="Gauntlett">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Date of Birth:</label>
-                                    <input class="form-control" placeholder="09/02/1993">
+                                    <label>Name:</label>
+                                    <input type="text" name="name" id="name"  class="form-control" ng-model="name">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Email Address:</label>
-                                    <input class="form-control" placeholder="tylergauntlett@gmail.com">
+                                    <input type="text" name="email" id="email"  class="form-control" ng-model="email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Created At:</label>
+                                    <p class="form-control-static">{{create}}</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Updated At:</label>
+                                    <p class="form-control-static">{{update}}</p>
                                 </div>
 
                             </div>
                             <div class="col-md-5">
-                                <form role="form">
+                                <form name="form" ng-submit="updateCtrl.search()" role="form">
                                     <h3>Search for a User By ID</h3>
                                     <div class="form-group input-group">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="userid" id="userid" class="form-control" ng-model="updateCtrl.userid" required>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">Search <i class="fa fa-search"></i></button>
+                                            <button class="btn btn-default" type="submit">Search <i class="fa fa-search"></i></button>
                                         </span>
                                     </div>
                                 </form>
@@ -46,7 +46,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-lg-12">
-                                <button type="submit" class="btn btn-warning pull-right">Update User</button>
+                                <button type="button" ng-click="updateCtrl.update()" class="btn btn-warning pull-right">Update User</button>
+                                <p>{{message}}</p>
                             </div>
                         </div>
                     </div>
