@@ -3,7 +3,7 @@
  var app = angular.module('app.home');
 
 	//controls the groups assigned to a user and how they are displayed
-
+/*
     var CurrentGroup = function($scope)
 	{
 
@@ -20,12 +20,13 @@
 
 	};
     CurrentGroup.$inject = ['$scope'];
-
+*/
  	app.directive('currentGroup', function(){
 		return{
 			restrict: 'E',
 			templateUrl: "/app/components/home/directives/currentGroup/currentGroupView.html",
-            controller: CurrentGroup
+            controller: "HomeController",
+            controllerAs: 'vm'
 		};
 	});
 

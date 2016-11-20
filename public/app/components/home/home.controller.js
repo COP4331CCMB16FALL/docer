@@ -6,76 +6,90 @@
 
     app.controller('HomeController', HomeController);
 
-    SystemController.$inject = ['$scope', 'HomeInfo'];
-    function SystemController($scope, HomeInfo){
-        /*
+    HomeController.$inject = ['$scope', 'HomeInfo', 'HomeData'];
+    function HomeController($scope, HomeInfo, HomeData){
+        /*       
         HomeInfo.getData().then(function(data){
-            this.groups = data.groups
+          console.log(data);
+          HomeData.addData(data.groups);
+          console.log(HomeData.getGroups());
         });
         */
-        this.group = "Some random key'";
-        //get the group by passing the key of the group in the dict
-        this.setGroup = function(groupKey) {
-            this.group = this.groups[groupKey];
-        };
-        
-        this.groups = {
-          "id": "1.2",
-          "groups": [
-            {
-              "groupId": "212312",
-              "groupMembers": [
+        var data = {
+            "groups": [
+              {
+              "id": 1,
+              "name": "memes",
+              "Members": [
                 {
-                  "id": [
-                    {
-                      "name": "\"Shit face\""
-                    },
-                    {
-                      "name": "shitter"
-                    }
-                  ]
+                  "id": 1,
+                  "name": "Shitfuck"
+                },
+                {
+                  "id": 2,
+                  "name": "Asshole"
                 }
-              ],
-              "Documents": [
+              ] 
+                },
                 {
-                  "id": "1223",
-                  "meta": {
-                    "tagName3": "\"1112\"",
-                    "TagName2": "\"222\""
-                  }
-                }
-              ]
-            },
-            {
-              "groupId": "123213",
-              "groupMembers": [
+              "id": 2,
+              "name": "Trump",
+              "Members": [
                 {
-                  "id": [
-                    {
-                      "name": "\"Shit face\""
-                    },
-                    {
-                      "name": "shitter"
-                    }
-                  ]
-                }
-              ],
-              "Documents": [
+                  "id": 2,
+                  "name": "Donkey Fucker"
+                },
                 {
-                  "id": "1223",
-                  "meta": {
-                    "tagName3": "\"1112\"",
-                    "TagName2": "\"222\""
-                  }
+                  "id": 3,
+                  "name": "Mountain Goat of Anal Destruction"
                 }
               ]
             }
-          ]
-        };
+              ],
+              "documents": [
+                {
+                  "document_id": 13,
+                  "group_id": 1,
+                  "metaTags": []
+                },
+                {
+                  "document_id": 14,
+                  "group_id": 1,
+                  "metaTags": [
+                    {
+                      "name": "name",
+                      "value": "Wv8QdXY.jpg"
+                    }
+                  ]
+                },
+                {
+                  "document_id": 33,
+                  "group_id": 1,
+                  "metaTags": [
+                    {
+                      "name": "name",
+                      "value": "security-101-book-e1477949975330.jpg"
+                    }
+                  ]
+                },
+                {
+                  "document_id": 40,
+                  "group_id": 1,
+                  "metaTags": [
+                    {
+                      "name": "name",
+                      "value": "tiny_hippo.png"
+                    }
+                  ]
+                }
+              ]
+            };
+            
+            this.groups = data['groups'];
+            this.documents = data['documents']
+        
+            HomeData.addData(data);
+
     }
-
-
-
-
 
 })();

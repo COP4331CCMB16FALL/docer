@@ -1,10 +1,30 @@
-<div class="col-md-8 col-xs-8">
-    <div class="ui-menu" id="radioContainer"
-         style="display: block; overflow-y: auto; height: 130px;">
-        <ul>
-            <li ng-repeat="user in group.users">
-                <input class="control control--radio" type="radio" name="distance" value="1"/>{{user.name}}
-            </li>
+<div class="hero-feature">
+    <div class="thumbnail">
+        <div class="caption">
+            <p style="display:inline">
+                <h3 class='text-center'>Current Group: {{current.group.name}}</h3>
+            </p>
+        </div>
+        <ul class="list-group">
+            <div class="row">
+                <div class="col-md-2 col-xs-2">
+            </div>
+            <div class="col-md-8 col-xs-8">
+                <div class="ui-menu">
+                    <ul>
+                        <li ng-repeat="user in current.group.Members">
+                            <b>Member Name:</b> {{user.name}}
+                        </li>
+                    </ul>  
+                </div>
+                <br>
+                <p>
+                    <a href="#" class="btn btn-danger">
+                        Leave Group
+                    </a>
+                </p>
+            </div>
+           
         </ul>
     </div>
 </div>
