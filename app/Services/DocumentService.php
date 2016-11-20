@@ -6,10 +6,32 @@ use Storage;
 use Imagick;
 use DB;
 use App;
+use Auth;
 use Response;
 
 class DocumentService
 {
+
+    // Pass array of document IDs
+    public function getDocuments($docs)
+    {
+        $docs = DB::table('users')
+            ->join('users_groups', 'users.id', '=', 'users_groups.user_id')
+            ->join('documents', 'users_groups.group_id', '=', 'documents.group_id')
+            ->where('users.id', Auth::id())
+            ->whereIn('documents.id', $docs)
+            ->select('documents.id as document_id', 'documents.group_id')
+            ->get();
+
+        foreach($docs as &$doc) {
+            $doc->metaTags = DB::table('document_meta_tags')
+                ->join('meta_tags', 'meta_tags.id', '=', 'document_meta_tags.meta_tag_id')
+                ->where('document_meta_tags.document_id', $doc->document_id)
+                ->select('meta_tags.name', 'document_meta_tags.value')
+                ->get();
+        }
+        return $docs;
+    }
 
     public function createDocument($file, $group, $user)
     {
@@ -83,6 +105,7 @@ class DocumentService
             return response()->json('Error: User does not have access to document ' . $document_id, 422);
         }
 
+        #return dump(App\Document::find((int)$document_id)->metaTags);
         $response = Response::make(Storage::disk('imageStore')->get($doc->path), 200);
         $response->header('Content-Type', $doc->mime_type);
         return $response;
@@ -90,7 +113,6 @@ class DocumentService
 
     public function destroyDocument($document_id, $user)
     {
-
         $doc = DB::table('users')
             ->join('users_groups', 'users.id', '=', 'users_groups.user_id')
             ->join('documents', 'users_groups.group_id', '=', 'documents.group_id')
@@ -116,7 +138,7 @@ class DocumentService
     {
         $paramArray = array();
         $strings = explode(' ', $search);
-        $stmt  = 'SELECT documents.* ';
+        $stmt  = 'SELECT documents.id ';
         $stmt .= 'FROM document_meta_tags ';
         $stmt .= 'INNER JOIN documents ON document_meta_tags.document_id = documents.id ';
         $stmt .= 'INNER JOIN users_groups ON users_groups.group_id = documents.group_id ';
@@ -125,14 +147,21 @@ class DocumentService
         $paramArray[] = $user['id'];
 
         foreach($strings as $val) {
-            $stmt .= 'document_meta_tags.value like ? or ';
+            $stmt .= 'document_meta_tags.value like ? and ';
             $paramArray[] = '%'.$val.'%';
         }
-        $stmt = substr($stmt, 0, -3);
+        $stmt = substr($stmt, 0, -4);
         $stmt .= ')';
 
-        $docs = DB::select($stmt, $paramArray);
-        return response()->json($docs);
+        $ret = DB::select($stmt, $paramArray);
+        $docs = [];
+
+        foreach($ret as $doc) {
+            $docs[] = $doc->id;
+        }
+
+        return response()->json(DocumentService::getDocuments($docs));
     }
+
 
 }
