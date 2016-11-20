@@ -62,7 +62,6 @@ Route::group(['prefix' => 'api'], function()
     Route::post('/update-group', 'DocumentController@updateGroup');
     Route::post('/destroy-group', 'DocumentController@destroyGroup');
 
-
 });
 
 Route::auth();
