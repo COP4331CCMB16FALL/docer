@@ -3,18 +3,25 @@
 namespace App\Services;
 
 use App\Document;
+use App\Group;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class GroupService
 {
 
-    public function createGroup($user_id)
+    public function createGroup($name)
     {
-        // TODO
+        $group = new Group([
+            'name' => $name,
+            'user_id' => Auth::id()
+        ]);
+
+        $group->save();
     }
 
-    public function readGroup($user_id)
+    public function readGroup($group_id)
     {
         // TODO
     }

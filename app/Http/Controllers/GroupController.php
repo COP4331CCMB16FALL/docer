@@ -17,7 +17,7 @@ class GroupController extends Controller
 
     public function createGroup(Request $request)
     {
-        $this->service->createGroup($request->input('group_id'));
+        $this->service->createGroup($request->input('name'));
     }
 
     public function readGroup(Request $request)
